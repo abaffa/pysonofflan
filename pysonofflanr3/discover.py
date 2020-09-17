@@ -37,7 +37,7 @@ class MyListener:
         info = zeroconf.get_service_info(type, name)
         self.logger.debug(info)
         device = info.properties[b"id"].decode("ascii")
-        ip = utils.parseAddress(info.address) + ":" + str(info.port)
+        ip = utils.parseAddress(info.addresses[0]) + ":" + str(info.port)
 
         self.logger.info(
             "Found Sonoff LAN Mode device %s at socket %s" % (device, ip)
